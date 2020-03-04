@@ -16,10 +16,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity display is
   port ( 
     CLK         : in std_logic;                     -- Counts designed for 125MHz
-    DATA_IN1    : in std_logic_vector(7 downto 0);
-    DATA_IN2    : in std_logic_vector(7 downto 0);
-    DATA_IN3    : in std_logic_vector(7 downto 0);
-    DATA_IN4    : in std_logic_vector(7 downto 0);
+    DATA_IN1    : in std_logic_vector(3 downto 0);
+    DATA_IN2    : in std_logic_vector(3 downto 0);
+    DATA_IN3    : in std_logic_vector(3 downto 0);
+    DATA_IN4    : in std_logic_vector(3 downto 0);
     CAT         : out std_logic_vector(3 downto 0);
     AN          : out std_logic_vector(7 downto 0)
   );
