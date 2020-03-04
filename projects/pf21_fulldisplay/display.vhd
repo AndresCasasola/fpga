@@ -15,9 +15,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity display is
   port ( 
-    CLK     : in std_logic;                     -- Counts designed for 125MHz
-    CAT     : out std_logic_vector(3 downto 0);
-    AN      : out std_logic_vector(7 downto 0)
+    CLK         : in std_logic;                     -- Counts designed for 125MHz
+    DATA_IN1    : in std_logic_vector(7 downto 0);
+    DATA_IN2    : in std_logic_vector(7 downto 0);
+    DATA_IN3    : in std_logic_vector(7 downto 0);
+    DATA_IN4    : in std_logic_vector(7 downto 0);
+    CAT         : out std_logic_vector(3 downto 0);
+    AN          : out std_logic_vector(7 downto 0)
   );
 end display;
 
@@ -32,10 +36,10 @@ architecture Behavioral of display is
     --signal rst          : std_logic;
     
     -- Constants
-    constant data1      : std_logic_vector(3 downto 0) := "0000";
-    constant data2      : std_logic_vector(3 downto 0) := "0001";
-    constant data3      : std_logic_vector(3 downto 0) := "0010";
-    constant data4      : std_logic_vector(3 downto 0) := "0011";
+--    constant data1      : std_logic_vector(3 downto 0) := "0000";
+--    constant data2      : std_logic_vector(3 downto 0) := "0001";
+--    constant data3      : std_logic_vector(3 downto 0) := "0010";
+--    constant data4      : std_logic_vector(3 downto 0) := "0011";
 
 --    component clk_wiz_0 is
 --        port (
@@ -110,13 +114,13 @@ begin
     begin
         case sel is
             when "00" =>
-                hexdata <= data1; 
+                hexdata <= DATA_IN1; 
             when "01" =>
-                hexdata <= data2;
+                hexdata <= DATA_IN2;
             when "10" =>
-                hexdata <= data3;
+                hexdata <= DATA_IN3;
             when "11" =>
-                hexdata <= data4;
+                hexdata <= DATA_IN4;
             when others => 
                 hexdata <= (others => '0');
         end case;
