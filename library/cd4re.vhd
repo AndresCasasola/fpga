@@ -2,7 +2,7 @@
 ----------------------------------------------------------------------------------
 --
 -- Engineer:        Andres Casasola Dominguez
--- Github:			AndresCasasola
+-- Github:          AndresCasasola
 
 -- Create Date:     02/2020
 -- Module Name:     cd4re - Behavioral
