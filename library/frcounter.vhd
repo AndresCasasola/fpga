@@ -1,13 +1,13 @@
 
 ----------------------------------------------------------------------------------
 --
--- Engineer: 		Andres Casasola Dominguez
--- Github:			AndresCasasola
+-- Engineer:        Andres Casasola Dominguez
+-- Github:          AndresCasasola
 
--- Create Date: 	02/2020
--- Module Name: 	frcounter - Behavioral
--- Dependencies: 	None
--- Description: 	Generic free running up-counter with no habilitation and no initialization.
+-- Create Date:     02/2020
+-- Module Name:     frcounter - Behavioral
+-- Dependencies:    None
+-- Description:     Generic free running up-counter with no habilitation and no initialization.
 -- 
 ----------------------------------------------------------------------------------
 

@@ -1,13 +1,13 @@
 
 ----------------------------------------------------------------------------------
 --
--- Engineer: 		Andres Casasola Dominguez
--- Github:			AndresCasasola
+-- Engineer:        Andres Casasola Dominguez
+-- Github:          AndresCasasola
 
--- Create Date: 	02/2020
--- Module Name: 	frcounter_div - Behavioral
--- Dependencies: 	None
--- Description: 	Generic free running up-counter with divided count output.
+-- Create Date:     02/2020
+-- Module Name:     frcounter_div - Behavioral
+-- Dependencies:    None
+-- Description:     Generic free running up-counter with divided count output.
 -- 
 ----------------------------------------------------------------------------------
 

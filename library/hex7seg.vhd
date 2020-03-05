@@ -1,13 +1,13 @@
 
 ----------------------------------------------------------------------------------
 --
--- Engineer: 		Andres Casasola Dominguez
--- Github:			AndresCasasola
+-- Engineer:        Andres Casasola Dominguez
+-- Github:          AndresCasasola
 
--- Create Date: 	02/2020
--- Module Name: 	hex7seg - Behavioral
--- Dependencies: 	None
--- Description: 	Demultiplexer for Hexadecimal to 7 segments interface.
+-- Create Date:     02/2020
+-- Module Name:     hex7seg - Behavioral
+-- Dependencies:    None
+-- Description:     Demultiplexer for Hexadecimal to 7 segments interface.
 -- 
 ----------------------------------------------------------------------------------
 

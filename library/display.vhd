@@ -1,13 +1,13 @@
 
 ----------------------------------------------------------------------------------
 --
--- Engineer: 		Andres Casasola Dominguez
--- Github:			AndresCasasola
+-- Engineer:        Andres Casasola Dominguez
+-- Github:          AndresCasasola
 
--- Create Date: 	02/2020
--- Module Name: 	display - Behavioral
--- Dependencies: 	hex7seg.vhd, frcounter_div.vhd
--- Description: 	Core to write 4 different data into 4x7 segment display.
+-- Create Date:     02/2020
+-- Module Name:     display - Behavioral
+-- Dependencies:    hex7seg.vhd, frcounter_div.vhd
+-- Description:     Core to write 4 different data into 4x7 segment display.
 -- 
 ----------------------------------------------------------------------------------
 

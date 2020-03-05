@@ -1,13 +1,13 @@
 
 ----------------------------------------------------------------------------------
 --
--- Engineer: 		Andres Casasola Dominguez
+-- Engineer:        Andres Casasola Dominguez
 -- Github:			AndresCasasola
 
--- Create Date: 	02/2020
--- Module Name: 	cd4re - Behavioral
--- Dependencies: 	None
--- Description: 	4-bit cascadable BCD up-counter with habilitation and synchronous reset.	
+-- Create Date:     02/2020
+-- Module Name:     cd4re - Behavioral
+-- Dependencies:    None
+-- Description:     4-bit cascadable BCD up-counter with habilitation and synchronous reset.	
 -- 
 ----------------------------------------------------------------------------------
 
