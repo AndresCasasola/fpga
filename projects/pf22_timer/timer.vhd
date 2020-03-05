@@ -4,8 +4,8 @@
 -- Github: AndresCasasola
 
 -- Create Date: 02/2020
--- Module Name: display - Behavioral
--- Dependencies: hex7seg.vhd, frcounter.vhd 
+-- Module Name: timer - Behavioral
+-- Dependencies: clk_wiz_0 ipcore, frcounter.vhd, cd4re.vhd, hex7seg.vhd, frcounter_v1.vhd
 -- 
 ----------------------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ use IEEE.math_real.all;
 
 entity timer is
   port ( 
-    CLK         : in std_logic;                     -- Counts designed for 125MHz
+    CLK         : in std_logic;     -- Counts designed for 125MHz
     RST         : in std_logic;
     CAT         : out std_logic_vector(3 downto 0);
     AN          : out std_logic_vector(7 downto 0)
@@ -46,7 +46,7 @@ architecture Behavioral of timer is
 
     component display is
         port (
-            CLK         : in std_logic;                     -- Counts designed for 125MHz
+            CLK         : in std_logic;     -- Counts designed for 125MHz
             DATA_IN1    : in std_logic_vector(3 downto 0);
             DATA_IN2    : in std_logic_vector(3 downto 0);
             DATA_IN3    : in std_logic_vector(3 downto 0);
@@ -90,7 +90,7 @@ begin
     
     FRCOUNT: frcounter
     generic map(
-        MAX_COUNT   => 7812500 --12500000     -- For 100ms tick with F_CLK = 125MHz, T_CLK = 8ns
+        MAX_COUNT   => 7812500      -- For 62.5ms tick with F_CLK = 125MHz, T_CLK = 8ns
     )
     port map(
         CLK         => MCLK,
