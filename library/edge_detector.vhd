@@ -1,20 +1,12 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer:
--- 
--- Create Date: 02/28/2020 09:14:08 PM
--- Design Name: 
--- Module Name: edge_detector - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--
+-- Engineer:        Andres Casasola Dominguez
+-- Github:          AndresCasasola
+
+-- Create Date:     02/2020
+-- Module Name:     debouncer - Behavioral
+-- Dependencies:    Nonce
+-- Description:     Edge detector.
 -- 
 ----------------------------------------------------------------------------------
 
