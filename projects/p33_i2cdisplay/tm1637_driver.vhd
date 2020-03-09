@@ -48,7 +48,10 @@ architecture Behavioral of tm1637_driver is
     signal sda_reg, sda_next        : std_logic;
     signal scl_reg, scl_next        : std_logic;
 
-    signal packet                   : std_logic_vector(7 downto 0) := "10001111";
+    type mem_t is array(8 downto 0) of std_logic_vector(7 downto 0);
+    
+    signal packets                  : mem_t := ("10001111","01111111","01111111","01111111","01111111","01111111","01111111","11001111","01000000");
+    signal count_reg, count_next    : unsigned(3 downto 0);
 
     component frcounter is
         generic(
@@ -83,12 +86,14 @@ begin
             n_reg <= (others => '0');
             sda_reg <= '0';
             scl_reg <= '0';
+            count_reg <= (others=>'0');
         elsif(CLK'event and CLK = '1') then
             state_reg <= state_next;
             s_reg <= s_next;
             n_reg <= n_next;
             sda_reg <= sda_next;
             scl_reg <= scl_next;
+            count_reg <= count_next;
         end if;
     end process;
     
@@ -101,6 +106,8 @@ begin
         n_next <= n_reg;
         sda_next <= sda_reg;
         scl_next <= scl_reg;
+        count_next <= count_reg;
+        
         ready <= '0';
         
         case state_reg is
@@ -123,7 +130,7 @@ begin
                         when 0 =>   -- 1/4 TBIT
                             scl_next <= '0';
                         when 1 =>   -- 2/4 TBIT
-                            sda_next <= packet(DEPTH_BIT - 1);
+                            sda_next <= packets(to_integer(count_reg))(DEPTH_BIT - 1);
                             n_next <= n_reg + 1;
                             s_next <= (others => '0');
                             state_next <= data;
@@ -147,7 +154,7 @@ begin
                                 state_next <= ack;
                                 n_next <= (others => '0');
                             else
-                                sda_next <= packet(DEPTH_BIT - 1 - to_integer(n_reg));
+                                sda_next <= packets(to_integer(count_reg))(DEPTH_BIT - 1 - to_integer(n_reg));
                                 state_next <= data;
                                 n_next <= n_reg + 1;
                             end if;
@@ -167,7 +174,12 @@ begin
                             s_next <= s_reg + 1;
                         when 3 =>   -- 4/4 TBIT
                             sda_next <= '0';
-                            state_next <= stop;
+                            count_next <= count_reg + 1;
+                            if(count_reg = 0 or count_reg = 7 or count_reg = 8) then
+                                state_next <= stop;
+                            else
+                                state_next <= idle;
+                            end if;
                             s_next <= (others => '0');
                         when others =>
                             state_next <= state_reg;
@@ -181,6 +193,9 @@ begin
                             scl_next <= '1'; -- # Should be 'Z'
                         when 1 =>   -- 2/4 TBIT
                             sda_next <= '1'; -- # Should be 'Z'
+                            if (count_reg = 8) then
+                                count_next <= (others=>'0');
+                            end if;
                             state_next <= idle;
                             s_next <= (others => '0');
                         when others =>
