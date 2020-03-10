@@ -31,8 +31,8 @@ entity tm1637_driver is
         PULSE_WIDTH     : in std_logic_vector(3 downto 0);
         STATE           : in std_logic;
         TX              : in std_logic;
-        SDA             : out std_logic;
-        SCL             : out std_logic;
+        SDA             : inout std_logic;
+        SCL             : inout std_logic;
         READY           : out std_logic
     );
 end tm1637_driver;
@@ -50,7 +50,8 @@ architecture Behavioral of tm1637_driver is
 
     type mem_t is array(8 downto 0) of std_logic_vector(7 downto 0);
     
-    signal packets                  : mem_t := ("10001111","01111111","01111111","01111111","01111111","01111111","01111111","11001111","01000000");
+    --signal packets                  : mem_t := ("10001111","01111111","01111111","01111111","01111111","01111111","01111111","11001111","01000000");
+    signal packets                  : mem_t := ("Z000ZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","ZZ00ZZZZ","0Z000000");
     signal count_reg, count_next    : unsigned(3 downto 0);
 
     component frcounter is
@@ -112,10 +113,8 @@ begin
         
         case state_reg is
             when idle =>
-                --SCL <= '1'; -- # Should be 'Z'
-                --SDA <= '1'; -- # Should be 'Z'
-                sda_next <= '1';
-                scl_next <= '1';
+                sda_next <= 'Z';    -- # Should be 'Z'
+                scl_next <= 'Z';    -- # Should be 'Z'
                 if(s_tick = '1' and tx = '1') then
                         state_next <= start;
                         s_next <= (others => '0');
@@ -143,7 +142,7 @@ begin
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= '1'; -- # Should be 'Z'
+                            scl_next <= 'Z'; -- # Should be 'Z'
 --                        when 1 =>   -- 2/4 TBIT
                         when 2 =>   -- 3/4 TBIT
                             scl_next <= '0';
@@ -163,22 +162,25 @@ begin
                     end case;
                 end if;
             when ack =>
-                sda_next <= '1'; -- # Should be 'Z' Moore output
+                sda_next <= 'Z'; -- # Should be 'Z' Moore output
                 if(s_tick = '1') then
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= '1';
+                            scl_next <= 'Z';    -- # Should be 'Z'
                         when 2 =>   -- 3/4 TBIT
                             scl_next <= '0'; 
                             s_next <= s_reg + 1;
                         when 3 =>   -- 4/4 TBIT
-                            sda_next <= '0';
                             count_next <= count_reg + 1;
                             if(count_reg = 0 or count_reg = 7 or count_reg = 8) then
                                 state_next <= stop;
+                                sda_next <= '0';
                             else
-                                state_next <= idle;
+                                --state_next <= idle;
+                                state_next <= data;
+                                sda_next <= packets(to_integer(count_reg+1))(DEPTH_BIT - 1);
+                                n_next <= n_reg + 1;
                             end if;
                             s_next <= (others => '0');
                         when others =>
@@ -190,10 +192,10 @@ begin
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= '1'; -- # Should be 'Z'
+                            scl_next <= 'Z'; -- # Should be 'Z'
                         when 1 =>   -- 2/4 TBIT
-                            sda_next <= '1'; -- # Should be 'Z'
-                            if (count_reg = 8) then
+                            sda_next <= 'Z'; -- # Should be 'Z'
+                            if (count_reg = 9) then
                                 count_next <= (others=>'0');
                             end if;
                             state_next <= idle;

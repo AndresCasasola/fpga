@@ -19,8 +19,8 @@ entity tm1637_test is
     CLK         : in std_logic;
     RST         : in std_logic;
     TX          : in std_logic;
-    SCL         : out std_logic;
-    SDA         : out std_logic
+    SCL         : inout std_logic;
+    SDA         : inout std_logic
   );
 end tm1637_test;
 
@@ -68,8 +68,8 @@ architecture Behavioral of tm1637_test is
             PULSE_WIDTH     : in std_logic_vector(3 downto 0);
             STATE           : in std_logic;
             TX              : in std_logic;
-            SDA             : out std_logic;
-            SCL             : out std_logic;
+            SDA             : inout std_logic;
+            SCL             : inout std_logic;
             READY           : out std_logic
         );
     end component;

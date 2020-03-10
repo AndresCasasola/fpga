@@ -31,4 +31,4 @@ run 100us
 
 # TX = 1
 add_force {/tm1637_test/TX}        -radix bin {1 0ns}
-run 200us
+run 600us
