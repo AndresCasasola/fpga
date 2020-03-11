@@ -79,7 +79,7 @@ begin
     
     COUNTER10ms: frcounter
         generic map(
-            MAX_COUNT   => 1250000  -- For 10ms at FCLK = 125MHz
+            MAX_COUNT   => 1000000  -- For 10ms at FCLK = 100MHz
         )
         port map(
             CLK         => CLK,

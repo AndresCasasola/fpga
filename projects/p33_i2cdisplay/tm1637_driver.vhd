@@ -50,9 +50,10 @@ architecture Behavioral of tm1637_driver is
 
     type mem_t is array(8 downto 0) of std_logic_vector(7 downto 0);
     
-    --signal packets                  : mem_t := ("10001111","01111111","01111111","01111111","01111111","01111111","01111111","11001111","01000000");
-    signal packets                  : mem_t := ("Z000ZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","ZZ00ZZZZ","0Z000000");
+    signal packets                  : mem_t := ("10001111","01111111","01111111","01111111","01111111","01111111","01111111","11001111","01000000");
+    --signal packets                  : mem_t := ("Z000ZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","000ZZZZZ","ZZ00ZZZZ","0Z000000");
     signal count_reg, count_next    : unsigned(3 downto 0);
+    constant high                   : std_logic := '1';
 
     component frcounter is
         generic(
@@ -113,8 +114,8 @@ begin
         
         case state_reg is
             when idle =>
-                sda_next <= 'Z';    -- # Should be 'Z'
-                scl_next <= 'Z';    -- # Should be 'Z'
+                sda_next <= high;    -- # Should be 'Z'
+                scl_next <= high;    -- # Should be 'Z'
                 if(s_tick = '1' and tx = '1') then
                         state_next <= start;
                         s_next <= (others => '0');
@@ -142,7 +143,7 @@ begin
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= 'Z'; -- # Should be 'Z'
+                            scl_next <= high; -- # Should be 'Z'
 --                        when 1 =>   -- 2/4 TBIT
                         when 2 =>   -- 3/4 TBIT
                             scl_next <= '0';
@@ -162,12 +163,12 @@ begin
                     end case;
                 end if;
             when ack =>
-                sda_next <= 'Z'; -- # Should be 'Z' Moore output
+                sda_next <= high; -- # Should be 'Z' Moore output
                 if(s_tick = '1') then
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= 'Z';    -- # Should be 'Z'
+                            scl_next <= high;    -- # Should be 'Z'
                         when 2 =>   -- 3/4 TBIT
                             scl_next <= '0'; 
                             s_next <= s_reg + 1;
@@ -192,9 +193,9 @@ begin
                     s_next <= s_reg + 1;
                     case to_integer(s_reg) is
                         when 0 =>   -- 1/4 TBIT
-                            scl_next <= 'Z'; -- # Should be 'Z'
+                            scl_next <= high; -- # Should be 'Z'
                         when 1 =>   -- 2/4 TBIT
-                            sda_next <= 'Z'; -- # Should be 'Z'
+                            sda_next <= high; -- # Should be 'Z'
                             if (count_reg = 9) then
                                 count_next <= (others=>'0');
                             end if;
