@@ -99,11 +99,11 @@ begin
     begin
         case sel is
             when "00" =>
-                --CAT <= "0111";  -- Turn on display 1
-                CAT <= "1111";  -- Turn off all displays
+                CAT <= "0111";  -- Turn on display 1
+                --CAT <= "1111";  -- Turn off all displays
             when "01" =>
-                --CAT <= "1011";  -- Turn on display 2
-                CAT <= "1111";  -- Turn off all displays
+                CAT <= "1011";  -- Turn on display 2
+                --CAT <= "1111";  -- Turn off all displays
             when "10" =>
                 CAT <= "1101";  -- Turn on display 3
             when "11" =>
