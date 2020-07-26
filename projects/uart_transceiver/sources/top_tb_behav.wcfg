@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="fun_pkg" />
+            <top_module name="glbl" />
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="6335000000001fs"></ZoomEndTime>
+      <Cursor1Time time="2902940000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="187"></NameColumnWidth>
+      <ValueColumnWidth column_width="95"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject type="logic" fp_name="/top_tb/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/BTN">
+      <obj_property name="ElementShortName">BTN[3:0]</obj_property>
+      <obj_property name="ObjectShortName">BTN[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/DUT/UART_TX_UNIT/TX_TRIGGER">
+      <obj_property name="ElementShortName">TX_TRIGGER</obj_property>
+      <obj_property name="ObjectShortName">TX_TRIGGER</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_TX_UNIT/DIN">
+      <obj_property name="ElementShortName">DIN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DIN[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/top_tb/DUT/UART_TX_UNIT/state_reg">
+      <obj_property name="ElementShortName">state_reg</obj_property>
+      <obj_property name="ObjectShortName">state_reg</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/DUT/UART_TX_UNIT/tick">
+      <obj_property name="ElementShortName">tick</obj_property>
+      <obj_property name="ObjectShortName">tick</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/UART_TX">
+      <obj_property name="ElementShortName">UART_TX</obj_property>
+      <obj_property name="ObjectShortName">UART_TX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_TX_UNIT/n_reg">
+      <obj_property name="ElementShortName">n_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">n_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/top_tb/DUT/UART_RX_UNIT/state_reg">
+      <obj_property name="ElementShortName">state_reg</obj_property>
+      <obj_property name="ObjectShortName">state_reg</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_RX_UNIT/s_reg">
+      <obj_property name="ElementShortName">s_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_RX_UNIT/n_reg">
+      <obj_property name="ElementShortName">n_reg[2:0]</obj_property>
+      <obj_property name="ObjectShortName">n_reg[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_RX_UNIT/b_reg">
+      <obj_property name="ElementShortName">b_reg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_reg[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/DUT/UART_RX_UNIT/RX_DONE_TICK">
+      <obj_property name="ElementShortName">RX_DONE_TICK</obj_property>
+      <obj_property name="ObjectShortName">RX_DONE_TICK</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/DUT/UART_RX_UNIT/DOUT">
+      <obj_property name="ElementShortName">DOUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUT[7:0]</obj_property>
+   </wvobject>
+</wave_config>

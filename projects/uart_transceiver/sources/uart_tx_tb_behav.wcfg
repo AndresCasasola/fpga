@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_tx_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_tx_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="62750000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="187"></NameColumnWidth>
+      <ValueColumnWidth column_width="107"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject type="logic" fp_name="/uart_tx_tb/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/uart_tx_tb/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/uart_tx_tb/tx_trigger">
+      <obj_property name="ElementShortName">tx_trigger</obj_property>
+      <obj_property name="ObjectShortName">tx_trigger</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/uart_tx_tb/DOUT">
+      <obj_property name="ElementShortName">DOUT</obj_property>
+      <obj_property name="ObjectShortName">DOUT</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/uart_tx_tb/DUT/baudrate_counter">
+      <obj_property name="ElementShortName">baudrate_counter[19:0]</obj_property>
+      <obj_property name="ObjectShortName">baudrate_counter[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/uart_tx_tb/DUT/tick">
+      <obj_property name="ElementShortName">tick</obj_property>
+      <obj_property name="ObjectShortName">tick</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/uart_tx_tb/DUT/state_reg">
+      <obj_property name="ElementShortName">state_reg</obj_property>
+      <obj_property name="ObjectShortName">state_reg</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/uart_tx_tb/DUT/s_reg">
+      <obj_property name="ElementShortName">s_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_reg[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/uart_tx_tb/DUT/n_reg">
+      <obj_property name="ElementShortName">n_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">n_reg[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
