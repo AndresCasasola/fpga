@@ -14,7 +14,7 @@
 module d_flipflop ( input   wire    d,
                     input   wire    rstn,
                     input   wire    clk,
-                    output  reg     q);
+                    output  wire     q);
     
     // Registers and wires
     reg q_reg;
